@@ -13,5 +13,6 @@ COPY supervisord.conf /etc/supervisord.conf
 RUN mkdir /var/log/supervisor /run/nginx
 
 COPY ./app /app
+RUN pip install flask
 
 CMD ["/usr/bin/supervisord"]
