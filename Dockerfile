@@ -10,6 +10,7 @@ WORKDIR /app
 COPY appserv.conf /etc/nginx/conf.d
 COPY uwsgi.ini /etc/uwsgi/
 COPY supervisord.conf /etc/supervisord.conf
+RUN mkdir /var/log/supervisor
 
 COPY ./app /app
 
