@@ -3,10 +3,9 @@ MAINTAINER Darkload <debuggerboy@gmail.com>
 
 RUN apk add --update nginx uwsgi uwsgi-python supervisor bash curl git python python-dev py-pip build-base && pip install virtualenv && rm -rf /var/cache/apk/*
 
-RUN echo "daemon off;" >> /etc/nginx/nginx.conf
-
 WORKDIR /app
 
+COPY nginx.conf /etc/nginx/nginx.conf
 COPY appserv.conf /etc/nginx/conf.d
 COPY uwsgi.ini /etc/uwsgi/
 COPY supervisord.conf /etc/supervisord.conf
